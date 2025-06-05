@@ -1,0 +1,123 @@
+---
+import PieChartReact from '../components/PieChartReact';
+import data from '../data/data.json';
+import Navbar from './navbar.astro';
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Population Statistics</title>
+  </head>
+  <body>
+    <Navbar />
+    
+    <main class="stats-container">
+      <div class="stats-header">
+        <h1>Tunisia Population Distribution</h1>
+        <p>Visual representation of population across governorates</p>
+      </div>
+      
+      <div class="chart-container" data-aos="zoom-in">
+        <PieChartReact data={data} client:only="react" />
+      </div>
+      
+      <div class="stats-info">
+        <div class="info-card" data-aos="fade-right">
+          <h3>Total Population</h3>
+          <p>{
+            Object.values(data).reduce((sum, gov) => sum + gov.population, 0)
+              .toLocaleString()
+          }</p>
+        </div>
+        
+        <div class="info-card" data-aos="fade-up">
+          <h3>Governorates</h3>
+          <p>{Object.keys(data).length}</p>
+        </div>
+        
+        <div class="info-card" data-aos="fade-left">
+          <h3>Average Population</h3>
+          <p>{
+            Math.round(
+              Object.values(data).reduce((sum, gov) => sum + gov.population, 0) / 
+              Object.keys(data).length
+            ).toLocaleString()
+          }</p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  .stats-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .stats-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .stats-header h1 {
+    color: var(--primary);
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .stats-header p {
+    color: var(--light-text);
+    font-size: 1.1rem;
+  }
+
+  .chart-container {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .stats-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .info-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+  }
+
+  .info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .info-card h3 {
+    color: var(--primary);
+    margin-top: 0;
+    font-size: 1.1rem;
+  }
+
+  .info-card p {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin: 0.5rem 0 0;
+  }
+
+  @media (max-width: 768px) {
+    .stats-info {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,164 @@
+---
+import Navbar from "./navbar.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact Us</title>
+  </head>
+  <body>
+    <Navbar />
+    <section class="contact-section">
+      <div class="contact-container" data-aos="fade-up">
+        <div class="contact-header">
+          <h1>Contact Us</h1>
+          <p>Have questions, suggestions, or want to contribute data? Reach out below.</p>
+        </div>
+        
+        <form 
+          name="contact" 
+          method="POST" 
+          data-netlify="true" 
+          class="contact-form"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required 
+              class="form-input"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required 
+              class="form-input"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              required 
+              rows="5" 
+              class="form-textarea"
+            ></textarea>
+          </div>
+          
+          <button type="submit" class="submit-button">
+            Send Message
+            <span class="button-icon">→</span>
+          </button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
+
+<style>
+  .contact-section {
+    background-color: var(--bg);
+    padding: 4rem 2rem;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+  }
+
+  .contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 2.5rem;
+    width: 100%;
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .contact-header h1 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-header p {
+    color: var(--light-text);
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .form-input, .form-textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+  }
+
+  .form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(46, 94, 170, 0.1);
+  }
+
+  .submit-button {
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+  }
+
+  .submit-button:hover {
+    background-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .button-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .submit-button:hover .button-icon {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 600px) {
+    .contact-container {
+      padding: 1.5rem;
+    }
+  }
+</style>

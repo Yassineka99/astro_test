@@ -1,0 +1,160 @@
+---
+import Navbar from "./navbar.astro";
+
+const sources = [
+  {
+    name: 'Tunisian National Institute of Statistics',
+    url: 'http://www.ins.tn/',
+    description: 'Official statistics including population and area data for each governorate.'
+  },
+  {
+    name: 'Wikipedia - Governorates of Tunisia',
+    url: 'https://en.wikipedia.org/wiki/Governorates_of_Tunisia',
+    description: 'Used for additional governor information and contextual references.'
+  },
+  {
+    name: 'data.gov.tn',
+    url: 'https://data.gov.tn',
+    description: 'Open data portal for Tunisian government statistics and datasets.'
+  },
+  {
+    name: 'Tunisia Ministry of Interior',
+    url: 'https://www.interieur.gov.tn/',
+    description: 'Official information about administrative divisions and governance.'
+  }
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Data Sources</title>
+  </head>
+  <body>
+    <Navbar />
+    
+    <section class="sources-section">
+      <div class="sources-container">
+        <div class="sources-header" data-aos="fade-up">
+          <h1>Data Sources</h1>
+          <p>Reliable references for our governorate information</p>
+        </div>
+        
+        <div class="sources-grid">
+          {sources.map((source, index) => (
+            <div class="source-card" data-aos="fade-up" data-aos-delay={index * 100}>
+              <h3>
+                <a href={source.url} target="_blank" rel="noopener noreferrer">
+                  {source.name}
+                </a>
+              </h3>
+              <p>{source.description}</p>
+              <a 
+                href={source.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="source-link"
+              >
+                Visit Source
+                <span class="link-icon">↗</span>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+<style>
+  .sources-section {
+    background-color: var(--bg);
+    min-height: calc(100vh - 70px);
+    padding: 4rem 2rem;
+  }
+
+  .sources-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .sources-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .sources-header h1 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .sources-header p {
+    color: var(--light-text);
+    font-size: 1.2rem;
+  }
+
+  .sources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .source-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .source-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .source-card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+  }
+
+  .source-card h3 a {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .source-card p {
+    color: var(--light-text);
+    flex-grow: 1;
+  }
+
+  .source-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 1rem;
+  }
+
+  .source-link:hover {
+    color: var(--accent);
+  }
+
+  .link-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .source-link:hover .link-icon {
+    transform: translate(3px, -3px);
+  }
+
+  @media (max-width: 768px) {
+    .sources-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

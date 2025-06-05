@@ -1,0 +1,117 @@
+---
+import Navbar from "./navbar.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Overview</title>
+  </head>
+  <body>
+    <Navbar />
+    
+    <section class="overview-section">
+      <div class="overview-container">
+        <div class="overview-header" data-aos="fade-up">
+          <h1>Overview of Tunisian Governorates</h1>
+          <p>Comprehensive regional data and insights</p>
+        </div>
+        
+        <div class="overview-content">
+          <div class="overview-card" data-aos="fade-right">
+            <h2>About This Platform</h2>
+            <p>This platform provides detailed demographic and administrative data about the governorates of Tunisia. You can explore population numbers, geographical area, current governors, and more.</p>
+          </div>
+          
+          <div class="overview-card" data-aos="fade-left">
+            <h2>Data Sources</h2>
+            <p>The goal is to offer a clean and accessible way to view, compare, and analyze regional statistics sourced from official datasets like <a href="https://data.gov.tn" target="_blank">data.gov.tn</a> and other reliable sources.</p>
+          </div>
+          
+          <div class="overview-card" data-aos="fade-right">
+            <h2>How to Use</h2>
+            <p>Use the navigation menu to browse governorate profiles, view population charts, and access data sources. Each governorate card provides key information at a glance.</p>
+          </div>
+          
+          <div class="overview-card" data-aos="fade-left">
+            <h2>Contact Us</h2>
+            <p>Have questions or suggestions? Visit our <a href="/contact">contact page</a> to get in touch with our team. We welcome feedback and contributions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+<style>
+  .overview-section {
+    background-color: var(--bg);
+    min-height: calc(100vh - 70px);
+    padding: 4rem 2rem;
+  }
+
+  .overview-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .overview-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .overview-header h1 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .overview-header p {
+    color: var(--light-text);
+    font-size: 1.2rem;
+  }
+
+  .overview-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+  }
+
+  .overview-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .overview-card h2 {
+    color: var(--primary);
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+
+  .overview-card p {
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .overview-card a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .overview-card a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .overview-content {
+      grid-template-columns: 1fr;
+    }
+    
+    .overview-header h1 {
+      font-size: 2rem;
+    }
+  }
+</style>

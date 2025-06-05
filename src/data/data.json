@@ -1,0 +1,53 @@
+{
+    "Tunis": {
+      "population": 1090000,
+      "area_km2": 346,
+      "governor": "Kamel Feki"
+    },
+    "Sfax": {
+      "population": 955421,
+      "area_km2": 7545,
+      "governor": "Faouzi Mahfoudh"
+    },
+    "Sousse": {
+      "population": 674971,
+      "area_km2": 2669,
+      "governor": "Nabil Ferjani"
+    },
+    "Ariana": {
+      "population": 576088,
+      "area_km2": 482,
+      "governor": "Mahdi Zaoui"
+    },
+    "Ben Arous": {
+      "population": 631842,
+      "area_km2": 761,
+      "governor": "Lotfi Baccouche"
+    },
+    "Nabeul": {
+      "population": 787920,
+      "area_km2": 2788,
+      "governor": "Mounir Hamdi"
+    },
+    "Kairouan": {
+      "population": 570559,
+      "area_km2": 6712,
+      "governor": "Ali Saidani"
+    },
+    "Monastir": {
+      "population": 548828,
+      "area_km2": 1019,
+      "governor": "Mohamed Neji Taktak"
+    },
+    "Gabès": {
+      "population": 374300,
+      "area_km2": 7166,
+      "governor": "Abdelkarim Messelmani"
+    },
+    "Gafsa": {
+      "population": 351437,
+      "area_km2": 7807,
+      "governor": "Khaled Sebai"
+    }
+  }
+  
